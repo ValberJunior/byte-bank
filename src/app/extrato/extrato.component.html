@@ -1,0 +1,19 @@
+<section class="container">
+  <div class="container__alert">
+    <p class="container__alert-message">{{displayMessage}}</p>
+  </div>
+<table class="table">
+  <thead class="table__header">
+    <th class="table__header-content">Data</th>
+    <th class="table__header-content">Valor</th>
+    <th class="table__header-content">Destino</th>
+  </thead>
+  <tbody class="table__body">
+    <tr class="table__body-item" *ngFor="let transaction of transactions">
+      <td class="item">{{transaction.data | date: 'short'}}</td>
+      <td class="item">{{transaction.value | currency }}</td>
+      <td class="item">{{transaction.destination}}</td>
+    </tr>
+  </tbody>
+</table>
+</section>

@@ -1,0 +1,50 @@
+@import '../../abstract/functions','../../abstract/responsive','../../abstract/variables';
+
+.container{
+  @include screenSize(100%,auto);
+  @include displayFlex(center,center,column);
+  &__alert{
+    @include screenSize(80vw,auto);
+    &-message{
+      @include typography(18px, center, 1.3em, 600);
+      margin-bottom: 2vh;
+      color: $color13;
+    }
+  }
+  .table{
+    @include screenSize(100%,40vh);
+    @include cardShadow();
+    background: $color10;
+    border-radius: 50px 50px 0 0;
+    &__header{
+      @include screenSize(100%,auto);
+      @include displayFlex(space-evenly, center, row);
+      &-content{
+        @include screenSize(30%,auto);
+        padding: 1.5em 0 .8em 0;
+        font-size: 20px;
+        text-align: center;
+        font-weight: 500;
+        border-bottom: 1px solid $color2;
+      }
+    }
+   &__body{
+    @include screenSize(100%,auto);
+    @include displayFlex(center, center, column);
+    &-item{
+      @include screenSize(100%,auto);
+      @include displayFlex(space-evenly, center, row);
+      &:nth-child(even){
+        background-color: $color5;
+      }
+      .item{
+        @include screenSize(30%,auto);
+        padding: 1.5em 0 .8em 0;
+        font-size: 20px;
+        text-align: center;
+        font-weight: 500;
+      }
+    }
+   }
+  }
+}
