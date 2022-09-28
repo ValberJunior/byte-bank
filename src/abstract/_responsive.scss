@@ -47,4 +47,9 @@
     }
 }
 
-
+//desktop
+@mixin for-desktop-only {
+  @media (min-width: 1300px) {
+      @content;
+  }
+}
