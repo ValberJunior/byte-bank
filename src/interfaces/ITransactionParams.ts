@@ -1,4 +1,5 @@
 export interface ITransactionParams {
   value: number,
-  destination: number
+  destination: number,
+  data: Date
 }
