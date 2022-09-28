@@ -4,28 +4,36 @@
   @include screenSize(100%,auto);
   @include displayFlex(center,center,column);
   &__alert{
-    @include screenSize(80vw,auto);
+    @include screenSize(100vw,10vh);
+    @include displayFlex(center,center,row);
+    background-color: $color15;
+    padding: 2em 6em;
+    @include cardShadow();
+    @include pulseAnimation();
+    margin-bottom: 3vh;
     &-message{
-      @include typography(18px, center, 1.3em, 600);
+      @include typography(20px, center, 1.3em, 600);
       margin-bottom: 2vh;
       color: $color13;
     }
   }
   .table{
-    @include screenSize(100%,40vh);
+    @include screenSize(100vw,auto);
     @include cardShadow();
     background: $color10;
     border-radius: 50px 50px 0 0;
     &__header{
       @include screenSize(100%,auto);
       @include displayFlex(space-evenly, center, row);
+      border-radius: 50px 50px 0 0;
+      background-color: $color5;
       &-content{
         @include screenSize(30%,auto);
         padding: 1.5em 0 .8em 0;
         font-size: 20px;
         text-align: center;
         font-weight: 500;
-        border-bottom: 1px solid $color2;
+        color: $color3;
       }
     }
    &__body{
@@ -35,7 +43,7 @@
       @include screenSize(100%,auto);
       @include displayFlex(space-evenly, center, row);
       &:nth-child(even){
-        background-color: $color5;
+        background-color: $color14;
       }
       .item{
         @include screenSize(30%,auto);
@@ -46,5 +54,9 @@
       }
     }
    }
+  }
+
+  &__emptyList{
+    @include typography(22px, center, 1.2em, 500);
   }
 }

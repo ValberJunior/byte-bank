@@ -1,8 +1,8 @@
 <section class="container">
-  <div class="container__alert">
+  <div class="container__alert" *ngIf="!!displayMessage">
     <p class="container__alert-message">{{displayMessage}}</p>
   </div>
-<table class="table">
+<table class="table" *ngIf="transactions.length > 0 ; else emptyList">
   <thead class="table__header">
     <th class="table__header-content">Data</th>
     <th class="table__header-content">Valor</th>
@@ -16,4 +16,7 @@
     </tr>
   </tbody>
 </table>
+<ng-template #emptyList>
+<p class="container__emptyList">Nenhuma transação até o momento ...</p>
+</ng-template>
 </section>
