@@ -23,7 +23,6 @@ export class NovaTransferenciaComponent {
           value: this.value, destination: this.destination
          };
        this.whenTransferring.emit(emitValue);
-       this.transferError.emit("Transferência realizada com sucesso!")
        this.clearFields();
       }
   };
@@ -31,11 +30,12 @@ export class NovaTransferenciaComponent {
   clearFields(){
     this.value = 0;
     this.destination = 0;
+    this.transferError.emit("");
   }
 
   private itsValid(){
-    const valid = this.value > 0 ;
-    if (!valid) return this.transferError.emit("Insira um valor válido");
+    const valid = this.value > 0 && this.destination > 0;
+    if (!valid) return this.transferError.emit("Insira um valor e um destino válido !");
     return valid;
   }
 }
