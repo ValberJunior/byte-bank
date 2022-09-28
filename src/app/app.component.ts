@@ -9,16 +9,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   //propriedades
   title = 'byte-bank';
-  transaction : ITransactionParams = {
-    value: 0,
-    destination: 0
-  };
+  transactions : ITransactionParams[] = [];
   displayMessage : string =  ""
 
   //metodos
   transfer($event:any) {
     console.log($event);
-    this.transaction = $event;
+    const transaction = {...$event, data: new Date()};
+    this.transactions.push(transaction);
   }
 
   displayStatus($event: string){
