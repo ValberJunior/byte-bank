@@ -13,6 +13,7 @@ html, body {
     scroll-snap-type: y mandatory;
     font-family: $font-text;
     box-sizing: border-box;
+    background-color: $color9;
 
     &::-webkit-scrollbar {
         @extend %invisible;
