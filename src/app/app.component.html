@@ -1,7 +1,7 @@
-<app-nova-transferencia (whenTransferring)="transfer($event)"
+<main class="container">
+  <app-nova-transferencia (whenTransferring)="transfer($event)"
 (transferError)="displayStatus($event)"></app-nova-transferencia>
+<!-- Preciso passar as property binds para o componente app-extrato -->
+<app-extrato [transactions]="transactions" [displayMessage]="displayMessage" ></app-extrato>
 
-<p> Valor: {{transaction.value}}</p>
-<p> Destino: {{transaction.destination}}</p>
-
-<p>{{displayMessage}}</p>
+</main>

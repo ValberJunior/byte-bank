@@ -1,0 +1,7 @@
+@import '../abstract/functions','../abstract/responsive','../abstract/variables';
+
+.container{
+  @include screenSize(100%,auto);
+  @include displayFlex(center, center, column);
+  background-color: $color9;
+;}
