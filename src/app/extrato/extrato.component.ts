@@ -1,5 +1,6 @@
 import { ITransactionParams } from './../../interfaces/ITransactionParams';
 import { Component, Input, OnInit } from '@angular/core';
+import { TransactionService } from '../services/transaction.service';
 
 @Component({
   selector: 'app-extrato',
@@ -8,12 +9,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ExtratoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: TransactionService) { }
 
-  ngOnInit(): void {
-  }
   //receber as propriedades do app component através do decorator input
-  @Input() transactions: ITransactionParams[] = [];
+  transactions: ITransactionParams[] = [];
   @Input() displayMessage: string = "";
+
+  ngOnInit(){
+    this.transactions = this.service.transactions;
+  }
 
 }

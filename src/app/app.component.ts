@@ -1,3 +1,4 @@
+import { TransactionService } from './services/transaction.service';
 import { ITransactionParams } from './../interfaces/ITransactionParams';
 import { Component } from '@angular/core';
 
@@ -9,14 +10,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   //propriedades
   title = 'byte-bank';
-  transactions : ITransactionParams[] = [];
   displayMessage : string =  ""
+
+  constructor(private service: TransactionService){};
 
   //metodos
   transfer($event:any) {
-    console.log($event);
-    const transaction = {...$event, data: new Date()};
-    this.transactions.push(transaction);
+    this.service.add($event);
   }
 
   displayStatus($event: string){

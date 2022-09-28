@@ -2,6 +2,6 @@
   <app-nova-transferencia (whenTransferring)="transfer($event)"
 (transferError)="displayStatus($event)"></app-nova-transferencia>
 <!-- Preciso passar as property binds para o componente app-extrato -->
-<app-extrato [transactions]="transactions" [displayMessage]="displayMessage" ></app-extrato>
+<app-extrato [displayMessage]="displayMessage" ></app-extrato>
 
 </main>
