@@ -1,0 +1,50 @@
+@import "functions", "variables";
+
+/*
+  RESPONSIVE
+*/
+
+//Phone (XS)
+@mixin for-mobileXS-only {
+    @media (max-width: 290px) {
+        @content;
+    }
+}
+
+
+//Phone (S)
+@mixin for-mobileS-only {
+    @media (max-width: 420px) {
+        @content;
+    }
+}
+
+//Phone (M)
+@mixin for-mobile-only {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+//Tablet
+@mixin for-tablet-only {
+    @media (max-width: 1199.99px) {
+        @content;
+    }
+}
+
+//Tablet(S)
+@mixin for-tabletS-only {
+    @media (max-width: 940px) {
+        @content;
+    }
+}
+
+//viewport(XL)
+@mixin for-viewport-only {
+    @media (max-width: 1300px) {
+        @content;
+    }
+}
+
+
