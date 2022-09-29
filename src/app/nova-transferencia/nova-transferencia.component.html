@@ -1,19 +1,22 @@
 <section class="container">
+  <article class="container__wrapper">
+    <img src="../../assets/image1.png" alt="image transaction" class="image"/>
     <form class="form" (ngSubmit)="transferValue()">
       <h2 class="form__title">Nova Transferência</h2>
 
       <div class="form__field">
         <label for="valor" class="form__field-label">Valor</label>
-        <input id="valor" type="number" class="form__field-input" [(ngModel)]="value" name="value">
+        <input id="valor" type="number" class="form__field-input" [(ngModel)]="value" name="value" required>
       </div>
 
       <div class="form__field">
         <label for="destino" class="form__field-label">Destino</label>
-        <input id="destino" type="text" class="form__field-input" [(ngModel)]="destination" name="destination">
+        <input id="destino" type="text" class="form__field-input" [(ngModel)]="destination" name="destination" required>
       </div>
 
      <div class="form__buttonWrapper">
        <button class="form__buttonWrapper-button" type="submit">Transferir</button>
      </div>
-  </form>
+    </form>
+  </article>
 </section>

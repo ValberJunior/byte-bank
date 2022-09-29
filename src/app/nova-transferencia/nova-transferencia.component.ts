@@ -1,6 +1,7 @@
 import { ITransactionParams } from './../../interfaces/ITransactionParams';
 import { TransactionService } from './../services/transaction.service';
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Router } from '@angular/router';
 
 //Decorator
 @Component({
@@ -13,12 +14,14 @@ export class NovaTransferenciaComponent {
   //metadado
   @Output() whenTransferring = new EventEmitter<any>();
   @Output() transferError = new EventEmitter<string>();
+  @Input() displayMessage: string = "";
 
   //propriedades
   value: number = 0;
   destination: number = 0;
 
-  constructor(private service : TransactionService){
+  //sempre injetar no constructor da classe, atributos que irei utilizar
+  constructor(private service : TransactionService, private router : Router){
   }
 
 
@@ -32,6 +35,8 @@ export class NovaTransferenciaComponent {
       this.service.add(emitValue).subscribe(result => {
         console.log(result);
         this.clearFields();  //sempre que for manipular algo na tela, deixar no met. subscribe
+        // this.router.navigate(['extrato', ...])  <-- antes utlizava assim, com a rota e mais um parametro
+        this.router.navigateByUrl('extrato');  //assim é mais utilizado
       },
         error => console.log(error)  //tratamento de erro
        )
@@ -46,7 +51,7 @@ export class NovaTransferenciaComponent {
 
   private itsValid(){
     const valid = this.value > 0 && this.destination !== 0;
-    if (!valid) return this.transferError.emit("Insira um valor e um destino válido !");
+    if (!valid) alert("Insira um valor e um destino válido !");
     return valid;
   }
 }

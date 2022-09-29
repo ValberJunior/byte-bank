@@ -1,7 +1,4 @@
 <section class="container">
-  <div class="container__alert" *ngIf="!!displayMessage">
-    <p class="container__alert-message">{{displayMessage}}</p>
-  </div>
 <table class="table" *ngIf="transactions.length > 0 ; else emptyList">
   <thead class="table__header">
     <th class="table__header-content">Data</th>

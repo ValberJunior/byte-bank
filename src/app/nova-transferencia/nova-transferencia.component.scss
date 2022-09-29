@@ -2,58 +2,121 @@
 
 .container{
   @include screenSize(100%,auto);
-  @include displayFlex(center,flex-start,row);
+  @include displayFlex(center,center,row);
   padding-bottom: 5vh;
-  .form{
-    margin-top: 5vh;
-    padding: 5em;
-    border-radius: .8em;
-    @include cardShadow();
-    background-color: $color10;
-    &__title{
-      @include typography(40px, left, 1.4em,600);
-      margin-bottom: 2.2vh;
-    }
-    &__field{
+  //mobile
+  @include for-mobile-only{
+    @include screenSize(100vw,auto);
+  }
+  &__wrapper{
+    @include screenSize(80%,auto);
+    @include displayFlex(center,flex-start,row);
+    padding-top: 5vh;
+    //mobile(S)
+    @include for-mobileS-only{
       @include screenSize(100%,auto);
-      @include displayFlex(center, flex-start,column);
-      &-label{
-        @include typography(18px,left,1.3em,500);
-        color: $color3;
-        margin-bottom: .3em;
+    }
+    .image{
+      @include screenSize(50%,auto);
+      //tablet(S)
+      @include for-tabletS-only{
+        display: none;
       }
-      &-input{
-        @include screenSize(100%,3em);
-        @include typography(2vw,left,1.2em,500);
-        outline: none;
-        border: 1px solid $color11;
-        border-radius: .3em;
-        margin-bottom: .7em;
-        padding: 0.6em;
-        &:focus{
-          outline: 2px double $color1;
+    }
+    .form{
+      @include screenSize(40%,auto);
+      margin-top: 5vh;
+      padding: 5em;
+      border-radius: .8em;
+      @include cardShadow();
+      background-color: $color10;
+      //viewport
+      @include for-viewport-only{
+        @include screenSize(50%,auto);
+      }
+      //tablet(S)
+      @include for-tabletS-only{
+        @include screenSize(100%,auto);
+      }
+      &__title{
+        @include typography(1.8vw, left, 1.4em,600);
+        margin-bottom: 2.2vh;
+      //tablet(S)
+      @include for-tabletS-only{
+        @include typography(2.5vw, left, 1.4em,600);
+      }
+      //Mobile(M)
+      @include for-mobile-only{
+        font-size: 30px;
+      }
+      }
+      &__field{
+        @include screenSize(100%,auto);
+        @include displayFlex(center, flex-start,column);
+
+        &-label{
+          @include typography(1.2vw,left,1.3em,500);
+          color: $color3;
+          margin-bottom: .3em;
+          //tablet(S)
+          @include for-tabletS-only{
+            @include typography(1.6vw, left, 1.4em,500);
+          }
+          //Mobile(M)
+          @include for-mobile-only{
+            font-size: 20px;
+          }
+        }
+        &-input{
+          @include screenSize(100%,2em);
+          @include typography(2vw,left,1.2em,500);
+          outline: none;
+          border: 1px solid $color11;
+          border-radius: .3em;
+          margin-bottom: .7em;
+          padding: 0.6em;
+          //Mobile(M)
+          @include for-mobile-only{
+            @include screenSize(100%,60px);
+            font-size: 20px;
+          }
+          &:focus{
+            outline: 2px double $color1;
+          }
         }
       }
-    }
-    &__buttonWrapper{
-      @include screenSize(100%,auto);
-      @include displayFlex(center, center,row);
-      margin-top: 3vh;
-      &-button{
-        @include screenSize(80%,auto);
-        background-color: $color6;
-        outline: none;
-        border: 1px solid $color11;
-        border-radius: .4em;
-        padding: 3vh 3vw;
-        color: $color9;
-        cursor: pointer;
-        @include typography(22px,center,1.2em,500);
-        transition: all .4s linear;
-        &:hover{
-          background-color: $color1;
+      &__buttonWrapper{
+        @include screenSize(100%,auto);
+        @include displayFlex(center, center,row);
+        margin-top: 3vh;
+          //tablet(S)
+          @include for-tabletS-only{
+            margin-top:2vh;
+          }
+        &-button{
+          @include screenSize(80%,auto);
+          background-color: $color6;
+          outline: none;
+          border: 1px solid $color11;
+          border-radius: .4em;
+          padding: 3vh 3vw;
+          color: $color9;
+          cursor: pointer;
+          @include typography(1.2vw,center,1.2em,500);
           transition: all .4s linear;
-          transform: scale(1.01);
+          //tablet(S)
+          @include for-tabletS-only{
+            @include typography(2vw,center,1.2em,500);
+          }
+          //mobile(M)
+          @include for-mobile-only{
+            font-size: 20px;
+          }
+          &:hover{
+            background-color: $color1;
+            transition: all .4s linear;
+            transform: scale(1.01);
+          }
         }
       }
     }

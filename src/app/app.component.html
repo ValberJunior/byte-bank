@@ -1,6 +1,14 @@
-<main class="container">
-  <app-nova-transferencia (transferError)="displayStatus($event)"></app-nova-transferencia>
-<!-- Preciso passar as property binds para o componente app-extrato -->
-<app-extrato [displayMessage]="displayMessage" ></app-extrato>
+<header class="header">
 
+  <nav class="header__navbar">
+    <a routerLink="extrato" class="header__navbar-link">
+      <img src="../assets/logo.png" class="logo" alt="logo"/> Bytebank
+   </a>
+    <a routerLink="nova-transferencia" class="header__navbar-link" routerLinkActive="active">
+      <img src="../assets/send.png" class="logo" alt="send transaction"/>Transferir
+    </a>
+  </nav>
+</header>
+<main class="container">
+  <router-outlet></router-outlet>
 </main>

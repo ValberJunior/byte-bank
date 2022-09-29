@@ -1,5 +1,39 @@
 @import '../abstract/functions','../abstract/responsive','../abstract/variables';
 
+.header{
+  @include screenSize(100%,auto);
+  @include displayFlex(center, center, row);
+  background-color: $color3;
+  &__navbar{
+    @include screenSize(80%,auto);
+    @include displayFlex(space-between, center, row);
+    //mobile(M)
+    @include for-mobile-only{
+      @include screenSize(100%,auto);
+    }
+    padding: 2vh 0;
+    &-link{
+      @include displayFlex(center, center, row);
+      color: $color10;
+      font-size: 18px;
+      font-weight: 600;
+      transition: all .5s linear;
+      padding: .9em 2em;
+      .logo{
+        width: 30px;
+        margin-right: 5px;
+      }
+      &:hover{
+        transition: all .5s ease-in;
+        color: $color9;
+      }
+    }
+    .active{
+      display: none;
+    }
+  }
+}
+
 .container{
   @include screenSize(100%,auto);
   @include displayFlex(center, center, column);
