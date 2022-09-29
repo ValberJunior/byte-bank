@@ -16,7 +16,11 @@ export class ExtratoComponent implements OnInit {
   @Input() displayMessage: string = "";
 
   ngOnInit(){
-    this.transactions = this.service.transactions;
+    this.service.AllTransactions().
+    subscribe((transactions: ITransactionParams[]) =>{
+      console.table(transactions);
+      this.transactions = transactions;
+    });
   }
 
 }

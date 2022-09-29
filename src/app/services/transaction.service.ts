@@ -1,5 +1,7 @@
 import { ITransactionParams } from './../../interfaces/ITransactionParams';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 //Injeção de dependência
 @Injectable({
   providedIn: 'root'  //Root significa para enquanto minha app estiver no ar
@@ -7,8 +9,9 @@ import { Injectable } from '@angular/core';
 export class TransactionService {
 
   private transactionList : ITransactionParams[];
+  private url = 'http://localhost:3000/transferencias';
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     this.transactionList = [];
    }
 
@@ -16,10 +19,14 @@ export class TransactionService {
     return this.transactionList;
    }
 
-   add(transaction : ITransactionParams){
-    this.hydrate(transaction);
-    this.transactionList.push(transaction);
+   AllTransactions() : Observable<ITransactionParams[]>{
+    return this.httpClient.get<ITransactionParams[]>(this.url);
    }
+
+   add(transaction : ITransactionParams) : Observable<ITransactionParams>{
+    this.hydrate(transaction);
+    return this.httpClient.post<ITransactionParams>(this.url,transaction);
+     }
 
    private hydrate(transaction : ITransactionParams){
     transaction.data = new Date() ;

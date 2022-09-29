@@ -1,5 +1,6 @@
 export interface ITransactionParams {
-  value: number,
-  destination: number,
-  data: Date
+  id?: number | string;
+  value: number;
+  destination: string | number;
+  data?: string | Date
 }

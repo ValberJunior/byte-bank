@@ -15,10 +15,6 @@ export class AppComponent {
   constructor(private service: TransactionService){};
 
   //metodos
-  transfer($event:any) {
-    this.service.add($event);
-  }
-
   displayStatus($event: string){
     this.displayMessage = $event;
   }

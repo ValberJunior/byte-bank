@@ -1,3 +1,5 @@
+import { ITransactionParams } from './../../interfaces/ITransactionParams';
+import { TransactionService } from './../services/transaction.service';
 import { Component, EventEmitter, Output } from "@angular/core";
 
 //Decorator
@@ -16,14 +18,23 @@ export class NovaTransferenciaComponent {
   value: number = 0;
   destination: number = 0;
 
+  constructor(private service : TransactionService){
+  }
+
+
   //metodos
   transferValue(){
       if(this.itsValid()){
-        const emitValue = {
+        const emitValue: ITransactionParams = {
           value: this.value, destination: this.destination
          };
-       this.whenTransferring.emit(emitValue);
-       this.clearFields();
+      //  this.whenTransferring.emit(emitValue);
+      this.service.add(emitValue).subscribe(result => {
+        console.log(result);
+        this.clearFields();  //sempre que for manipular algo na tela, deixar no met. subscribe
+      },
+        error => console.log(error)  //tratamento de erro
+       )
       }
   };
 
@@ -34,7 +45,7 @@ export class NovaTransferenciaComponent {
   }
 
   private itsValid(){
-    const valid = this.value > 0 && this.destination > 0;
+    const valid = this.value > 0 && this.destination !== 0;
     if (!valid) return this.transferError.emit("Insira um valor e um destino válido !");
     return valid;
   }
