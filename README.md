@@ -1,5 +1,5 @@
 # Projeto Bytebank
-## Apoio: Curso Alura - Angular: Explorando o framework
+##  Curso Alura - Angular: Explorando o framework
 ## Tela:
 [Gravação de tela de 29-09-22 11:16:17.webm](https://user-images.githubusercontent.com/84424883/193056292-058fefbe-6395-43ea-9c9c-6bca91773fc5.webm)
 ### Tecnologias utilizadas:
